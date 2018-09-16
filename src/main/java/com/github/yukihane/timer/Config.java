@@ -46,7 +46,7 @@ public final class Config {
         try {
             final String path = App.class.getProtectionDomain().getCodeSource().getLocation().getPath();
             final String decodedPath = URLDecoder.decode(path, "UTF-8");
-            configFile = new File(decodedPath, "config.properties");
+            configFile = new File(new File(decodedPath).getParentFile(), "config.properties");
 
             System.out.println(configFile.getCanonicalPath());
 
